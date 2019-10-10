@@ -1,2 +1,2 @@
 # AutoPkg-Recipes
-Recipes for AutoPkg
+Recipes for AutoPkg created using https://github.com/homebysix/recipe-robot
