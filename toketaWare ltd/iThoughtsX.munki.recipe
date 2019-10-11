@@ -16,12 +16,106 @@
 		<string>iThoughtsX</string>
 		<key>pkginfo</key>
 		<dict>
+			<key>blocking_applications</key>
+			<array>
+				<string>iThoughtsX.app</string>
+			</array>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>Productivity</string>
 			<key>description</key>
-			<string>iThoughtsHD brings mind mapping to the iPad. Based on the award winning iThoughts for iPhone, iThoughtsHD has been designed specifically for the iPad.</string>
+			<string>iThoughtsX is a mindmapping tool for the Mac (iOS and Windows versions also available.)
+
+Mindmapping enables you to visually organise your thoughts, ideas and information.
+
+Typical Uses:
+
+      • Task lists.
+      • Summarising.
+      • Brainstorming.
+      • Project planning.
+      • Goal setting.
+      • WBS
+      • Course Notes/Revision.
+      • Meeting Notes.
+      • GTD
+
+Highlights:
+
+Import and export to and from many of the most popular desktop application formats:
+      • MindManager
+      • iMindmap
+      • Freemind/Freeplane
+      • Novamind
+      • XMind
+      • Mindview
+      • ConceptDraw
+      • OPML (OmniOutliner, Scrivener etc.)
+      • Excel/Numbers/Outlook/ToodleDo (CSV)
+      • Markdown
+      • Plain/rich text
+      • ...plus import only support for CMAP, Scapple, Mindmeister, Mindnode, Mindmapper, SimpleMind and MyThoughts
+
+Export to:
+      • MS Powerpoint/Keynote (PPTX)
+      • MS Word/Pages (DOCX)
+      • MS Project (XML)
+      • PDF
+      • PNG
+      • Markdown
+      • Website (HTML + attachments)
+      • Flashcard (Quizlet.com / Cram.com)
+      • Things (Task Management App)
+      • iCloud Calendar/Reminders
+
+Plays nicely:
+      • Cloud synchronisation with iCloud, Dropbox and WebDAV
+      • Handoff (start editing a map on one device - finish up on another)
+      • Send and open email attachements
+      • Cut/Copy/Paste within and between maps and other apps (e.g. Mail, Safari and Notes etc.)
+      • Upload and download community generated maps from Biggerplate
+
+Flexible Topic Attributes:
+      • Colour / Shape
+      • Images / Icons
+      • Notes
+      • Rich text (using Markdown)
+      • Hyperlinks (websites, other maps, other topics)
+      • Callouts / Floating topics
+      • Boundaries
+      • Auto-numbering
+      • Named relationships between topics
+      • Style support (predefined collections of colors, fonts, shapes etc.)
+
+Task Management:
+      • Assign start/due date, effort, progress, priority and resources
+      • Email task reports (by project, by resource)
+
+Advanced Mindmap Features:
+      • Multiple layouts (horizontal, vertical, fishbone etc.)
+      • Multiple link styles (curved, tapered, right angled etc.)
+      • Embedded documents (PDF, XLS, DOC etc)
+      • Over 100 builtin icons and 90 clipart images.
+      • Over 30 background canvas patterns (with option to import more.)
+      • 10 system 'Map Styles' (with option to import more.)
+      • Rules based filtering engine.
+      • Presentation mode.
+      • Rule based sorting - including option to sort continuously
+      • Encrypted, password protected maps.
+      • Outline View
+      • Search (map names, topics, notes, links) across all maps.
+
+First class macOS integration:
+      • Retina support
+      • Versions support
+      • Fullscreen support
+      • Spotlight integration
+      • Quicklook support
+      • Pinch to zoom
+      • Dark Mode support</string>
 			<key>developer</key>
 			<string>toketaWare ltd</string>
 			<key>display_name</key>
