@@ -20,6 +20,10 @@
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>Fonts</string>
+			<key>blocking_applications</key>
+			<string>Fontstand.app</string>
 			<key>description</key>
 			<string>Over 15,000 free fonts available for download now for all your projects on Windows, Macintosh, Android and iOS.</string>
 			<key>developer</key>
