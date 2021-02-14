@@ -10,8 +10,6 @@
 	<string>com.github.paul-cossey.pkg.iThoughtsX</string>
 	<key>Input</key>
 	<dict>
-		<key>BUNDLE_ID</key>
-		<string>com.toketaware.ithoughtsx</string>
 		<key>NAME</key>
 		<string>iThoughtsX</string>
 	</dict>

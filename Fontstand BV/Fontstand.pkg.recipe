@@ -10,8 +10,6 @@
 	<string>com.github.paul-cossey.pkg.Fontstand</string>
 	<key>Input</key>
 	<dict>
-		<key>BUNDLE_ID</key>
-		<string>com.fontstand-bv.mac.Fontstand</string>
 		<key>NAME</key>
 		<string>Fontstand</string>
 	</dict>
