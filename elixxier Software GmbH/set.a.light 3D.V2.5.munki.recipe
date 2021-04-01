@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Comment</key>
+	<string>Created with Recipe Robot v2.2.0 (https://github.com/homebysix/recipe-robot)</string>
+	<key>Description</key>
+	<string>Downloads the latest version of set.a.light 3D V2.5 and imports it into Munki.</string>
+	<key>Identifier</key>
+	<string>com.github.paul-cossey.munki.SALV2.5</string>
+	<key>Input</key>
+	<dict>
+		<key>APP_FILENAME</key>
+		<string>set.a.light 3D v2.5</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/%NAME%</string>
+		<key>NAME</key>
+		<string>SAL V2.5</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>blocking_applications</key>
+			<array>
+				<string>elixxier Patcher.app</string>
+				<string>set.a.light 3D v2.5.app</string>
+				<string>ZFGameBrowser.app</string>
+			</array>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>set.a.light 3D
+
+Better than ever before!
+
+set.a.light 3D revolutionizes the way modern photographers and filmmakers plan their setups. It gives creative people the opportunity to express themselves faster, bring their ideas to life and saves them from guessing. From a simple portrait shoot to a complex photo production - it's all possible. That's why both beginners and industry leaders love set.a.light 3D.
+
+Dive into a world full of possibilities and push your projects further. It has never been so easy to achieve breathtaking results.</string>
+			<key>developer</key>
+			<string>elixxier Software GmbH</string>
+			<key>category</key>
+			<string>Photography</string>
+			<key>display_name</key>
+			<string>SAL V2.5</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.0</string>
+	<key>ParentRecipe</key>
+	<string>com.github.paul-cossey.download.SALV2.5</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
