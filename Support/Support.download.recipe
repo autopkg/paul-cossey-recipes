@@ -5,7 +5,7 @@
 	<key>Comment</key>
 	<string>Created with Recipe Robot v2.2.0 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of Support.</string>
+	<string>Downloads the latest version of Support App developed by Root3.</string>
 	<key>Identifier</key>
 	<string>com.github.paul-cossey.download.Support</string>
 	<key>Input</key>
