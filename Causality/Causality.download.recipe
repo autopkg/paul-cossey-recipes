@@ -23,7 +23,7 @@
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 				<key>url</key>
-				<string>https://releases.hollywoodcamerawork.com/cau/2.1.14-96ec39c7/Causality%202.1.14%20Installer.dmg</string>
+				<string>https://releases.hollywoodcamerawork.com/cau/2.4.14-61cc394f/Causality%202.4.14%20Installer.dmg</string>
 			</dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
