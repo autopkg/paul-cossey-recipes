@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Comment</key>
+    <string>The .pkg contains a postinstall script that creates a launchagent, and has logic for closing/relaunching during updates</string>
+    <key>Description</key>
+    <string>Downloads the latest version of Support App developed by Root3 and imports it into Munki.</string>
+    <key>Identifier</key>
+    <string>com.github.paul-cossey.munki.Support-pkg</string>
+    <key>Input</key>
+    <dict>
+        <key>MUNKI_REPO_SUBDIR</key>
+        <string>apps/%NAME%</string>
+        <key>NAME</key>
+        <string>Support</string>
+        <key>pkginfo</key>
+        <dict>
+            <key>catalogs</key>
+            <array>
+                <string>testing</string>
+            </array>
+            <key>description</key>
+            <string>The Support app is a macOS menu bar app built for organizations to:
+
+Help users and helpdesks to see basic diagnostic information at a glance and proactively notify them to easily fix small issues.
+
+Offer shortcuts to easily access support channels or other company resources such as a website or a file server
+
+Give users a modern and native macOS app with your corporate identity</string>
+            <key>developer</key>
+            <string>Root3 B.V.</string>
+            <key>display_name</key>
+            <string>Support</string>
+            <key>name</key>
+            <string>%NAME%</string>
+            <key>unattended_install</key>
+            <true/>
+        </dict>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>1.0.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.paul-cossey.download.Support-pkg</string>
+    <key>Process</key>
+    <array>
+    <dict>
+        <key>Arguments</key>
+        <dict>
+            <key>destination_path</key>
+            <string>%RECIPE_CACHE_DIR%/unpack</string>
+            <key>flat_pkg_path</key>
+            <string>%pathname%</string>
+            <key>purge_destination</key>
+            <true/>
+        </dict>
+            <key>Processor</key>
+            <string>FlatPkgUnpacker</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>destination_path</key>
+                <string>%RECIPE_CACHE_DIR%/Applications</string>
+                <key>pkg_payload_path</key>
+                <string>%RECIPE_CACHE_DIR%/unpack/Payload</string>
+                <key>purge_destination</key>
+                <true/>
+            </dict>
+            <key>Processor</key>
+            <string>PkgPayloadUnpacker</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiInstallsItemsCreator</string>
+            <key>Arguments</key>
+            <dict>
+                <key>faux_root</key>
+                <string>%RECIPE_CACHE_DIR%</string>
+                <key>installs_item_paths</key>
+                <array>
+                    <string>/Applications/Support.app</string>
+                </array>
+                <key>version_comparison_key</key>
+                <string>CFBundleShortVersionString</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>MunkiImporter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%pathname%</string>
+                <key>repo_subdirectory</key>
+                <string>%MUNKI_REPO_SUBDIR%</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
