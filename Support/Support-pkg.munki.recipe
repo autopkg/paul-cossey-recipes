@@ -71,31 +71,31 @@ Give users a modern and native macOS app with your corporate identity</string>
             <string>PkgPayloadUnpacker</string>
         </dict>
         <dict>
-    		<key>Arguments</key>
-    		<dict>
-        		<key>info_path</key>
-        		<string>%RECIPE_CACHE_DIR%/Applications/Support.app</string>
-        		<key>plist_keys</key>
-        		<dict>
-            		<key>LSMinimumSystemVersion</key>
-            		<string>min_os_ver</string>
-        		</dict>
-    		</dict>
-    		<key>Processor</key>
-    		<string>PlistReader</string>
-		</dict>
-		<dict>
-   			 <key>Arguments</key>
-   			 <dict>
-        		<key>additional_pkginfo</key>
-        		<dict>
-            		<key>minimum_os_version</key>
-            		<string>%min_os_ver%</string>
-        		</dict>
-    		</dict>
-    		<key>Processor</key>
-    		<string>MunkiPkginfoMerger</string>
-		</dict>
+            <key>Arguments</key>
+            <dict>
+                <key>info_path</key>
+                <string>%RECIPE_CACHE_DIR%/Applications/Support.app</string>
+                <key>plist_keys</key>
+                <dict>
+                    <key>LSMinimumSystemVersion</key>
+                    <string>min_os_ver</string>
+                </dict>
+            </dict>
+            <key>Processor</key>
+            <string>PlistReader</string>
+        </dict>
+        <dict>
+             <key>Arguments</key>
+             <dict>
+                <key>additional_pkginfo</key>
+                <dict>
+                    <key>minimum_os_version</key>
+                    <string>%min_os_ver%</string>
+                </dict>
+            </dict>
+            <key>Processor</key>
+            <string>MunkiPkginfoMerger</string>
+        </dict>
         <dict>
             <key>Processor</key>
             <string>MunkiInstallsItemsCreator</string>
