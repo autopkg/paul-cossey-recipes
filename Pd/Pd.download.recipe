@@ -2,38 +2,62 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Comment</key>
-	<string>Created with Recipe Robot v2.2.0 (https://github.com/homebysix/recipe-robot)</string>
-	<key>Description</key>
-	<string>Downloads the latest version of Pd.</string>
-	<key>Identifier</key>
-	<string>com.github.paul-cossey.download.Pd</string>
-	<key>Input</key>
-	<dict>
-		<key>APP_FILENAME</key>
-		<string>Pd-0.51-4</string>
-		<key>NAME</key>
-		<string>Pd</string>
-	</dict>
-	<key>MinimumVersion</key>
-	<string>1.0.0</string>
-	<key>Process</key>
-	<array>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>filename</key>
-				<string>%NAME%.tgz</string>
-				<key>url</key>
-				<string>http://msp.ucsd.edu/Software/pd-0.51-4.mac.tar.gz</string>
-			</dict>
-			<key>Processor</key>
-			<string>URLDownloader</string>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>EndOfCheckPhase</string>
-		</dict>
-	</array>
+    <key>Comment</key>
+    <string>Created with Recipe Robot v2.2.0 (https://github.com/homebysix/recipe-robot)</string>
+    <key>Description</key>
+    <string>Downloads the latest version of Pd.</string>
+    <key>Identifier</key>
+    <string>com.github.paul-cossey.download.Pd</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>Pd</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>1.0.0</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>re_pattern</key>
+                <string>href=\"(https://msp\.puredata\.info/Software/pd-\d\.\d\d-\d\.macos\.zip)\"</string>
+                <key>result_output_var_name</key>
+                <string>match</string>
+                <key>url</key>
+                <string>https://puredata.info/downloads/pure-data</string>
+            </dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>re_pattern</key>
+                <string>href=\"https://puredata\.info/downloads/pure-data/releases/(\d\.\d\d-\d)\"</string>
+                <key>result_output_var_name</key>
+                <string>version</string>
+                <key>url</key>
+                <string>https://puredata.info/downloads/pure-data</string>
+            </dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+        </dict>
+        <dict>
+            <key>Arguments</key>
+            <dict>
+                <key>filename</key>
+                <string>%NAME%.zip</string>
+                <key>url</key>
+                <string>%match%</string>
+            </dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
 </dict>
 </plist>
