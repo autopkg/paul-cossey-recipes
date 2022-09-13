@@ -34,6 +34,8 @@ Give users a modern and native macOS app with your corporate identity</string>
             <string>Support</string>
             <key>name</key>
             <string>%NAME%</string>
+            <key>blocking_applications</key>
+            <array/>
             <key>unattended_install</key>
             <true/>
         </dict>
