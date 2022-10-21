@@ -38,6 +38,22 @@ Give users a modern and native macOS app with your corporate identity</string>
             <array/>
             <key>unattended_install</key>
             <true/>
+            <key>postinstall_script</key>
+            <string>#!/bin/bash
+#
+# Post install script to workaround this issue: https://github.com/root3nl/SupportApp/issues/90
+# Checks if the launch agent exists and if it doesn't creates it
+#
+if [ ! -f "/Library/LaunchAgents/nl.root3.support.plist" ]
+then
+    /usr/bin/defaults write "/Library/LaunchAgents/nl.root3.support.plist" Label -string "nl.root3.support"
+    /usr/bin/defaults write "/Library/LaunchAgents/nl.root3.support.plist" ProgramArguments -array -string "/Applications/Support.app/Contents/MacOS/Support"
+    /usr/bin/defaults write "/Library/LaunchAgents/nl.root3.support.plist" KeepAlive -boolean yes
+    /usr/bin/defaults write "/Library/LaunchAgents/nl.root3.support.plist" ProcessType -string "Interactive"
+    /usr/sbin/chown root:wheel "/Library/LaunchAgents/nl.root3.support.plist"
+    /bin/chmod 644 "/Library/LaunchAgents/nl.root3.support.plist"
+fi
+</string>
         </dict>
     </dict>
     <key>MinimumVersion</key>
