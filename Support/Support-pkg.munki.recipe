@@ -16,6 +16,8 @@
         <string>Support</string>
         <key>pkginfo</key>
         <dict>
+            <key>blocking_applications</key>
+            <array/>
             <key>catalogs</key>
             <array>
                 <string>testing</string>
@@ -34,10 +36,6 @@ Give users a modern and native macOS app with your corporate identity</string>
             <string>Support</string>
             <key>name</key>
             <string>%NAME%</string>
-            <key>blocking_applications</key>
-            <array/>
-            <key>unattended_install</key>
-            <true/>
             <key>postinstall_script</key>
             <string>#!/bin/bash
 #
@@ -54,6 +52,34 @@ then
     /bin/chmod 644 "/Library/LaunchAgents/nl.root3.support.plist"
 fi
 </string>
+            <key>preuninstall_script</key>
+            <string>#!/bin/bash
+
+# Get the username of the currently logged in user
+username=$(scutil &lt;&lt;&lt; "show State:/Users/ConsoleUser" | awk '/Name :/ &amp;&amp; ! /loginwindow/ { print $3 }')
+
+# See if a user is logged in
+if [[ -n "${username}" ]]; then
+	# Get the username ID
+	uid=$(id -u "${username}")
+	# Unload the LaunchAgent
+	if launchctl print "gui/${uid}/nl.root3.support" &amp;&gt; /dev/null ; then
+		launchctl bootout gui/"${uid}" "/Library/LaunchAgents/nl.root3.support.plist" &amp;&gt; /dev/null
+	fi
+	#Delete the LaunchAgent
+	/bin/rm -f /Library/LaunchAgents/nl.root3.support.plist
+	# Just to be sure, kill Support App if still running
+	if pgrep -x "Support" ; then
+		killall -9 "Support"
+	fi
+else
+	#Delete the LaunchAgent
+	/bin/rm -f /Library/LaunchAgents/nl.root3.support.plist
+fi</string>
+            <key>unattended_install</key>
+            <true/>
+            <key>unattended_uninstall</key>
+            <true/>
         </dict>
     </dict>
     <key>MinimumVersion</key>
