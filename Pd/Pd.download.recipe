@@ -21,7 +21,7 @@
             <key>Arguments</key>
             <dict>
                 <key>re_pattern</key>
-                <string>href=\"(https://msp\.puredata\.info/Software/pd-\d\.\d\d-\d\.macos\.zip)\"</string>
+                <string>href=\"(https://msp\.ucsd\.edu/Software/pd-([A-Za-z0-9]+(\.[A-Za-z0-9]+)+)-[0-9]+\.macos\.zip)\"</string>
                 <key>result_output_var_name</key>
                 <string>match</string>
                 <key>url</key>
