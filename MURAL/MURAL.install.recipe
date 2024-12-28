@@ -30,7 +30,7 @@
                         <key>destination_path</key>
                         <string>/Applications</string>
                         <key>source_item</key>
-                        <string>MURAL.app</string>
+                        <string>Mural.app</string>
                     </dict>
                 </array>
             </dict>
