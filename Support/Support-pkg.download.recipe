@@ -5,16 +5,22 @@
     <key>Comment</key>
     <string>The .pkg contains a postinstall script that creates a launchagent, and has logic for closing/relaunching during updates.</string>
     <key>Description</key>
-    <string>Downloads the latest .pkg version of Support App developed by Root3.</string>
+    <string>Downloads the latest .pkg version of Support App developed by Root3.
+
+Set PRERELEASE to a non-empty string to download prereleases, either
+via Input in an override or via the -k option,
+i.e.: `-k PRERELEASE=yes</string>
     <key>Identifier</key>
     <string>com.github.paul-cossey.download.Support-pkg</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
         <string>Support</string>
+        <key>PRERELEASE</key>
+        <string></string>
     </dict>
     <key>MinimumVersion</key>
-    <string>1.0.0</string>
+    <string>1.1</string>
     <key>Process</key>
     <array>
         <dict>
@@ -24,6 +30,8 @@
                 <string>Support\..*\.pkg</string>
                 <key>github_repo</key>
                 <string>root3nl/SupportApp</string>
+                <key>include_prereleases</key>
+                <string>%PRERELEASE%</string>
             </dict>
             <key>Processor</key>
             <string>GitHubReleasesInfoProvider</string>
