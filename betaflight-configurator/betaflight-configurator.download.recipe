@@ -5,7 +5,11 @@
 	<key>Comment</key>
 	<string>Created with Recipe Robot v2.1.0 (https://github.com/homebysix/recipe-robot)</string>
 	<key>Description</key>
-	<string>Downloads the latest version of betaflight-configurator.</string>
+	<string>Downloads the latest version of betaflight-configurator.
+
+Set PRERELEASE to a non-empty string to download prereleases, either
+via Input in an override or via the -k option,
+i.e.: `-k PRERELEASE=yes`</string>
 	<key>Identifier</key>
 	<string>com.github.paul-cossey.download.betaflight-configurator</string>
 	<key>Input</key>
@@ -14,6 +18,8 @@
 		<string>Betaflight Configurator</string>
 		<key>NAME</key>
 		<string>betaflight-configurator</string>
+		<key>PRERELEASE</key>
+		<string></string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.0</string>
@@ -26,6 +32,8 @@
 				<string>.*\.dmg$</string>
 				<key>github_repo</key>
 				<string>betaflight/betaflight-configurator</string>
+			    <key>include_prereleases</key>
+			    <string>%PRERELEASE%</string>
 			</dict>
 			<key>Processor</key>
 			<string>GitHubReleasesInfoProvider</string>
